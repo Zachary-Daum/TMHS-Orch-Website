@@ -1,0 +1,12 @@
+{
+    "name":"Tomball Memorial High School Orchestra",
+    "short_name":"TMHS Orchestra",
+    "icons": [{
+        "src":"favicon.png",
+        "sizes":"32x32",
+        "type":"image/png"
+    }],
+    "start_url":"/index.html",
+    "background-color":"#3c40c6",
+    "theme_color":"#fff"
+}

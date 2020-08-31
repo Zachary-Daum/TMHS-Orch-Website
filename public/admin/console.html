@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Console</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+</head>
+<body>
+    <!--Console-->
+    <fieldset>
+        <legend>Homepage</legend>
+        <fieldset>
+            <legend>Updates</legend>
+            <form id="message_form" action="#">
+                <label for="name">Name</label>
+                <input type="text" id="name"><br>
+                <label for="msg">Message</label>
+                <input type="text" id="msg"><br>
+                <button type="submit">Submit Post</button>
+            </form>
+        </fieldset>
+        <fieldset>
+            <legend>Gallery</legend>
+            <form id="gallery_form" action="#">
+                <p>Images need to be uploaded to Firebase storage, see documentation for directions.</p>
+                <label for="img_link">Image Link</label>
+                <input type="text" id="img_link"><br>
+                <label for="img_alt">Description</label>
+                <input type="text" id="img_alt"><br>
+                <button type="submit">Add Image to Gallery</button>
+            </form>
+        </fieldset>
+    </fieldset>
+    <br>
+    <fieldset>
+        <legend>Booster Club Page</legend>
+        <fieldset>
+            <legend>Fundraiser</legend>
+            <form id="fundraiser_form" action="#">
+                <p><strong>This will remove the current information in the fundraiser sections</strong></p>
+                <label for="fundraiser_name">Fundraiser Name</label>
+                <input type="text" id="fundraiser_name"><br>
+                <label for="fundraiser_description">Fundraiser Description</label>
+                <input type="text" id="fundraiser_description"><br>
+                <button type="submit">Update Fundraiser Info</button>
+            </form>
+        </fieldset>
+        <fieldset>
+            <legend>Booster Board</legend>
+            <form id="board_form" action="#">
+                <label for="pres_name">President Name</label><input type="text" id="pres_name"><br>
+                <label for="vp_name">Vice President Name</label><input type="text" id="vp_name"><br>
+                <label for="tres_name">Treasurer Name</label><input type="text" id="tres_name"><br>
+                <label for="sec_name">Secretary Name</label><input type="text" id="sec_name"><br>
+                <label for="banq_name">Banquet Chair Name</label><input type="text" id="banq_name"><br>
+                <label for="memb_name">Membership Chair Name</label><input type="text" id="memb_name"><br>
+                <label for="uni_name">Uniform Chair Name</label><input type="text" id="uni_name"><br>
+                <button type="submit">New Booster Board</button>
+            </form>
+        </fieldset>
+        <fieldset>
+            <legend>Booster Membership Recognition</legend>
+            <p><strong>Please list all members at once.</strong></p>
+            <form id="sponsor_form" action="#">
+                <label for="suzuki">Suzuki</label><input type="text" id="suzuki"><br>
+                <label for="vivaldi">vivaldi</label><input type="text" id="vivaldi"><br>
+                <label for="mendelssohn">mendelssohn</label><input type="text" id="mendelssohn"><br>
+                <label for="stravinsky">stravinsky</label><input type="text" id="stravinsky"><br>
+                <label for="mozart">mozart</label><input type="text" id="mozart"><br>
+                <label for="beethoven">beethoven</label><input type="text" id="beethoven"><br>
+                <button type='submit'>Replace Booster Club Sponsors</button>
+            </form>
+        </fieldset>
+    </fieldset> 
+    <br>
+    <fieldset>
+        <legend>Program Page</legend>
+        <fieldset>
+            <legend>Handbook</legend>
+            <form id="handbook_form" action="#">
+                <label for="handbook_link">Handbook Link</label><input type="text" id="handbook_link"><br>
+                <button type="submit">Replace Handbook Link</button>
+            </form>
+        </fieldset>
+        <fieldset>
+            <legend>Spring Trip</legend>
+            <form id="springtrip_form" action="#">
+                <label for="trip_description">Spring Trip Description</label><textarea id="trip_description"></textarea><br>
+                <button type="submit">Replace Spring Trip Description</button>
+            </form>
+        </fieldset>
+    </fieldset><br>
+    <p>Documentation for the admin console can be found on <a href="https://github.com/Zachary-Daum/orch-site-final">my Github</a>.</p>
+    <!--Post scripts-->
+    <script src="../script/post_updates.js"></script>
+    <!--Logout-->
+    <button id="logout_btn">Logout</button>
+    <script type="text/javascript" src="../script/logout.js"></script>
+</body>
+</html>
