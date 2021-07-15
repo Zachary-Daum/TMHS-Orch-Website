@@ -69,12 +69,55 @@
                 <a href="https://www.youtube.com/channel/UCVX4mT-lY0iYu8DMyrC-a2A" style="color:#fff;"><i class="fab fa-youtube" aria-hidden="true"></i></a>
                 <hr>
                 <span class="footer-text">© 2020 TMHS Orchestra</span><br>
-                <span class="footer-text"><a href="admin/index.html">Login</a></span>
+                <span class="footer-text" style="cursor: pointer;"><a onclick="loginFunction()">Login</a></span>
             </div>
     </div>
     <!--Scripts-->
     <script type="text/javascript" src="script/prog_updates.js"></script>
     <script type="text/javascript" src="script/gallery_feed.js"></script>
     <script id="script-test"></script>
+
+    <!--Authorization-->
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+    <script>
+        const config = {
+        apiKey: "AIzaSyC5Pfh5VjcbeHL7lxZdVjbI6hkVuhQG-T4",
+        authDomain: "orch-website.firebaseapp.com",
+        databaseURL: "https://orch-website.firebaseio.com",
+        projectId: "orch-website",
+        storageBucket: "orch-website.appspot.com",
+        messagingSenderId: "216030039794",
+        appId: "1:216030039794:web:d49263dcecd18cff3d0a6b",
+        measurementId: "G-WSLG1WQ4VX"
+        };
+        firebase.initializeApp(config);
+
+        function loginFunction() {
+            const googleAuth = new firebase.auth.GoogleAuthProvider();
+            firebase.auth().signInWithPopup(googleAuth).then((result) => {
+                var credential = result.credential;
+                console.log(credential);
+                var user = result.user;
+                console.log(user);
+
+                if (user.uid != 'tUXSkvmqzMMiivgvPO8N5yPJhdp2') {
+                    firebase.auth().signOut();
+                    alert("Must log in with the Booster Club Email");
+                }
+            }).catch((error) => {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                var email = error.email;
+                var credential = error.credential;
+            });
+
+            firebase.auth().onAuthStateChanged(function(user) {
+                if(user) {
+                    window.location.replace('../admin/console.html');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
